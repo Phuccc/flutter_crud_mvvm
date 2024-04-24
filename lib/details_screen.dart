@@ -35,20 +35,6 @@ class _SampleItemDetailsViewState extends State<SampleItemDetailsView> {
         backgroundColor: const Color.fromARGB(255, 144, 106, 106),
         actions: [
           IconButton(
-            icon: const Icon(Icons.edit),
-            onPressed: () {
-              showModalBottomSheet<String?>(
-                context: context,
-                builder: (context) =>
-                    SampleItemUpdate(initialName: widget.item.name.value),
-              ).then((value) {
-                if (value != null) {
-                  viewModel.updateItem(widget.item.id, value);
-                }
-              });
-            },
-          ),
-          IconButton(
             icon: const Icon(Icons.delete),
             onPressed: () {
               showDialog(
@@ -90,6 +76,30 @@ class _SampleItemDetailsViewState extends State<SampleItemDetailsView> {
             ),
           ));
         },
+      ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            backgroundColor: const Color.fromARGB(255, 220, 151, 124),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50), // Bo tròn nút
+            ),
+            child: const Icon(Icons.edit),
+            onPressed: () {
+              showModalBottomSheet<String?>(
+                context: context,
+                builder: (context) =>
+                    SampleItemUpdate(initialName: widget.item.name.value),
+              ).then((value) {
+                if (value != null) {
+                  viewModel.updateItem(widget.item.id, value);
+                }
+              });
+            },
+          ),
+        ],
       ),
     );
   }

@@ -116,7 +116,6 @@ class _SampleItemListViewState extends State<SampleItemListView> {
           ),
         ],
       ),
-
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet<String?>(
@@ -129,14 +128,12 @@ class _SampleItemListViewState extends State<SampleItemListView> {
             }
           });
         },
-        backgroundColor: const Color.fromARGB(255, 160, 110, 110),
+        backgroundColor: const Color.fromARGB(255, 220, 151, 124),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50), // Bo tròn nút
         ), // Màu nền của nút
         child: const Icon(Icons.add),
       ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.endFloat, // Đặt vị trí ở góc phải dưới
     );
   }
 }
@@ -260,7 +257,7 @@ class _SampleItemUpdateState extends State<SampleItemUpdate> {
           )
         ],
       ),
-      body: Padding(
+      body: Container(
         padding: const EdgeInsets.all(16.0),
         child: TextFormField(
           controller: textEditingController,
